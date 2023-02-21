@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option csharp_namespace = "Rpc.Core";
+
+package connection;
+
+service ServiceConnection 
+{
+  rpc PingServer(PingMessage) returns (PingReply);
+  
+  rpc GetServerInfo(InfoMessage) returns (InfoReply);
+}
+
+message PingMessage 
+{
+  string grpc_port = 1;
+  string socker_port = 2;
+}
+
+message PingReply 
+{
+  bool is_success = 1;
+}
+
+message InfoMessage {
+  string info = 1;
+}
+
+message InfoReply 
+{
+  bool is_connected = 1;
+  int32 clients_number = 2;
+}
