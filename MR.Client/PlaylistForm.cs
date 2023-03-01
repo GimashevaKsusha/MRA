@@ -216,7 +216,7 @@ namespace MR.Client
 
             try
             {
-                await hubConnection.InvokeAsync("GetPrevOrNextSong", flag, uuid, title, state, num + 1);
+                await hubConnection.InvokeAsync("GetPrevOrNextSong", flag, uuid, title, !state, num + 1);
             }
             catch
             {
